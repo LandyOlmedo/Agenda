@@ -1,102 +1,81 @@
-# 📱 Agenda de Contactos Web
+# 📱 Mi Agenda de Contactos
 
-Una aplicación web completa para gestionar contactos desarrollada con Python y web.py, implementando operaciones CRUD con base de datos SQLite.
+¡Hola! Este es mi proyecto de una agenda de contactos web. Es una aplicación simple pero funcional donde puedes guardar, ver, editar y eliminar contactos de forma fácil.
 
-## 🚀 Características
+## ¿Qué hace esta aplicación?
 
-- ✅ **CRUD Completo**: Crear, leer, actualizar y eliminar contactos
-- 📊 **Base de Datos**: SQLite para persistencia de datos
-- 🎨 **Interfaz Moderna**: Diseño responsivo con HTML5 y CSS3
-- 🔍 **Navegación Intuitiva**: Enlaces directos entre vistas
-- 📱 **Diseño Responsivo**: Compatible con dispositivos móviles y desktop
+- � **Agregar contactos** - Guarda nombres y emails
+- 👀 **Ver contactos** - Muestra todos tus contactos en una tabla
+- ✏️ **Editar contactos** - Cambia la información cuando quieras
+- �️ **Eliminar contactos** - Borra contactos que ya no necesites
 
-## 🛠️ Tecnologías Utilizadas
+## ¿Qué tecnologías usé?
 
-### Backend
-- **Python 3.12+** - Lenguaje de programación principal
-- **web.py** - Framework web minimalista
-- **SQLite3** - Base de datos ligera
+- **Python** - Para la lógica del servidor
+- **web.py** - Un framework web sencillo
+- **SQLite** - Para guardar los datos
+- **HTML y CSS** - Para que se vea bonito
 
-### Frontend
-- **HTML5** - Estructura de las páginas
-- **CSS3** - Estilos y diseño visual
-- **Motor de plantillas web.py** - Renderizado dinámico
-
-## 📁 Estructura del Proyecto
+## � Archivos del proyecto
 
 ```
 Agenda/
-├── app.py                 # Aplicación principal
-├── agenda.db             # Base de datos SQLite
-├── agenda.sql            # Script SQL inicial
-├── server.log            # Logs del servidor
-├── templates/            # Plantillas HTML
-│   ├── personas.html     # Lista principal y formulario
-│   ├── detalle.html      # Vista detallada de contacto
-│   ├── editar.html       # Formulario de edición
-│   └── borrar.html       # Confirmación de eliminación
+├── app.py                 # Aquí está toda la lógica
+├── agenda.db             # Base de datos con los contactos
+├── agenda.sql            # Script para crear la base de datos
+├── templates/            # Las páginas web
+│   ├── personas.html     # Página principal
+│   ├── detalle.html      # Ver un contacto
+│   ├── editar.html       # Editar un contacto
+│   └── borrar.html       # Confirmar eliminación
 └── README.md             # Este archivo
 ```
 
-## 🔧 Instalación y Configuración
+## � ¿Cómo usar el proyecto?
 
-### Prerrequisitos
-```bash
-# Python 3.12 o superior
-python --version
+### Paso 1: Instalar Python
+Necesitas tener Python instalado en tu computadora.
 
-# Verificar pip
-pip --version
-```
-
-### Paso 1: Clonar el repositorio
-```bash
-git clone <tu-repositorio>
-cd Agenda
-```
-
-### Paso 2: Instalar dependencias
+### Paso 2: Instalar web.py
 ```bash
 pip install web.py
 ```
 
-### Paso 3: Configurar la base de datos
-```bash
-# Crear la base de datos con el script SQL
-sqlite3 agenda.db < agenda.sql
-```
-
-### Paso 4: Ejecutar la aplicación
+### Paso 3: Ejecutar la aplicación
 ```bash
 python app.py
 ```
 
-La aplicación estará disponible en: `http://localhost:8080`
+### Paso 4: Abrir en el navegador
+Ve a: `http://localhost:8080`
 
-## 💻 Uso de la Aplicación
+¡Y listo! Ya puedes usar tu agenda de contactos.
 
-### Página Principal (`/`)
-- **Vista**: Lista de todos los contactos
-- **Funcionalidad**: Formulario para agregar nuevos contactos
-- **Acciones**: Ver, Editar, Eliminar contactos
+## 💻 ¿Cómo funciona?
 
-### Ver Contacto (`/detalle/<id>`)
-- **Vista**: Información detallada del contacto
-- **Funcionalidad**: Visualización completa de datos
-- **Navegación**: Enlaces a editar y eliminar
+### Página Principal
+Aquí puedes ver todos tus contactos en una tabla y agregar nuevos contactos con un formulario simple.
 
-### Editar Contacto (`/editar/<id>`)
-- **Vista**: Formulario de edición pre-poblado
-- **Funcionalidad**: Actualizar información del contacto
-- **Validación**: Campos requeridos y tipos de datos
+### Ver Contacto
+Haz clic en "Ver" para ver toda la información de un contacto.
 
-### Eliminar Contacto (`/borrar/<id>`)
-- **Vista**: Confirmación antes de eliminar
-- **Funcionalidad**: Eliminación segura con confirmación
-- **Seguridad**: Prevención de eliminaciones accidentales
+### Editar Contacto
+Haz clic en "Editar" para cambiar el nombre o email de un contacto.
 
-## 🗄️ Esquema de Base de Datos
+### Eliminar Contacto
+Haz clic en "Eliminar" y confirma si realmente quieres borrarlo.
 
+## 🎨 ¿Cómo se ve?
+
+El diseño es simple y limpio:
+- Colores azules y grises
+- Tablas organizadas
+- Botones claros para cada acción
+- Se adapta a celulares y computadoras
+
+## 🔧 Detalles técnicos
+
+### Base de datos
 ```sql
 CREATE TABLE personas (
     id_persona INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -105,111 +84,20 @@ CREATE TABLE personas (
 );
 ```
 
-## 🚦 Rutas de la API
+### Páginas disponibles
+- `/` - Página principal con la lista
+- `/detalle/1` - Ver contacto con ID 1
+- `/editar/1` - Editar contacto con ID 1
+- `/borrar/1` - Eliminar contacto con ID 1
 
-| Método | Ruta | Descripción |
-|--------|------|-------------|
-| GET | `/` | Lista todos los contactos |
-| POST | `/` | Crea un nuevo contacto |
-| GET | `/detalle/<id>` | Muestra detalles del contacto |
-| GET | `/editar/<id>` | Formulario de edición |
-| POST | `/editar/<id>` | Actualiza el contacto |
-| GET | `/borrar/<id>` | Confirmación de eliminación |
-| POST | `/borrar/<id>` | Elimina el contacto |
+## 🤝 ¿Quieres contribuir?
 
-## 📝 Código Principal
+Si tienes ideas para mejorar el proyecto:
+1. Haz un fork del repositorio
+2. Crea una nueva rama
+3. Haz tus cambios
+4. Envía un pull request
 
-### Configuración de Rutas
-```python
-urls = (
-    "/", "Personas",
-    "/detalle/(.*)", "Detalle",
-    "/editar/(.*)", "Editar",
-    "/borrar/(.*)", "Borrar"
-)
-```
-
-### Clase Principal (Ejemplo)
-```python
-class Personas:
-    def GET(self):
-        # Obtener y mostrar contactos
-        return render.personas(personas)
-    
-    def POST(self):
-        # Crear nuevo contacto
-        form = web.input()
-        # Insertar en base de datos
-        raise web.seeother("/")
-```
-
-## 🎨 Características de Diseño
-
-- **Colores**: Paleta moderna con azules y grises
-- **Tipografía**: Arial, sans-serif para legibilidad
-- **Componentes**: Botones con estados hover
-- **Layout**: Contenedor centrado con sombras
-- **Responsive**: Adaptable a diferentes tamaños de pantalla
-
-## 🔍 Funcionalidades Implementadas
-
-### ✅ Operaciones CRUD
-- [x] **Create**: Agregar nuevos contactos
-- [x] **Read**: Listar y ver contactos
-- [x] **Update**: Editar contactos existentes
-- [x] **Delete**: Eliminar contactos
-
-### ✅ Validaciones
-- [x] Campos obligatorios
-- [x] Validación de email
-- [x] Manejo de errores
-- [x] Confirmación de eliminación
-
-### ✅ Navegación
-- [x] Enlaces entre páginas
-- [x] Botones de acción
-- [x] Redirección después de operaciones
-- [x] Botones de cancelar
-
-## 🚀 Despliegue
-
-### Desarrollo Local
-```bash
-python app.py
-```
-
-### Producción (Ejemplo con Gunicorn)
-```bash
-pip install gunicorn
-gunicorn -w 4 -b 0.0.0.0:8080 app:app
-```
-
-## 📊 Capturas de Pantalla
-
-### Página Principal
-- Lista de contactos con formulario de agregar
-- Tabla responsive con acciones
-
-### Vista de Detalle
-- Información completa del contacto
-- Navegación clara
-
-### Formulario de Edición
-- Campos pre-poblados
-- Validación en tiempo real
-
-## 🤝 Contribuciones
-
-Si deseas contribuir al proyecto:
-
-1. Fork el repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -am 'Agrega nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+¡Gracias por ver mi proyecto! 😊
 
 
