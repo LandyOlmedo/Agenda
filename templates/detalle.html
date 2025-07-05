@@ -1,0 +1,106 @@
+$def with (persona)
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contacto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .detail-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .detail-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: white;
+            border-left: 4px solid #007bff;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .detail-value {
+            font-size: 16px;
+            color: #333;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .btn {
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            min-width: 100px;
+        }
+        .btn-back {
+            background-color: #6c757d;
+            color: white;
+        }
+        .btn-edit {
+            background-color: #ffc107;
+            color: black;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contacto</h1>
+        
+        <div class="detail-card">
+            <div class="detail-item">
+                <div class="detail-label">ID:</div>
+                <div class="detail-value">$persona[0]</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Nombre:</div>
+                <div class="detail-value">$persona[1]</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Email:</div>
+                <div class="detail-value">$persona[2]</div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="/" class="btn btn-back">Volver</a>
+            <a href="/editar/$persona[0]" class="btn btn-edit">Editar</a>
+            <a href="/borrar/$persona[0]" class="btn btn-delete">Eliminar</a>
+        </div>
+    </div>
+</body>
+</html>
